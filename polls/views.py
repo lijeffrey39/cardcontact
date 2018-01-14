@@ -184,8 +184,9 @@ def getFile(request, code):
     first = user.first_name 
     last = user.last_name
     name = first + " " + last
+    phone = 'TEL;type=CELL;type=VOICE;type=pref:' + str(user.userprofile.phone)
 
-    fileContent = 'BEGIN:VCARD\r\nVERSION:3.0\r\nEMAIL;TYPE=INTERNET:' + email + '\r\nFN:' + name + '\r\nN:' + last + ';' + first + ';;;\r\nEND:VCARD\r\n'
+    fileContent = 'BEGIN:VCARD\r\nVERSION:3.0\r\nEMAIL;TYPE=INTERNET:' + email + '\r\nFN:' + name + '\r\nN:' + last + ';' + first + ';;;\r\n' + phone + '\r\nEND:VCARD\r\n'
     res = HttpResponse(content_type=mimetypes.guess_type(first))
     res.write(fileContent)
     res['Content-Disposition'] = 'attachment; filename=' + first + last + '.vcf'
