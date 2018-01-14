@@ -184,7 +184,7 @@ def getFile(request, code):
     name = first + " " + last
 
     fileContent = 'BEGIN:VCARD\r\nVERSION:3.0\r\nEMAIL;TYPE=INTERNET:' + email + '\r\nFN:' + name + '\r\nN:' + last + ';' + first + ';;;\r\nEND:VCARD\r\n'
-    res = HttpResponse(fileContent)
+    res = HttpResponse(fileContent, content_type=mimetypes.guess_type(file_name))
     res['Content-Disposition'] = 'attachment; filename=yourname.vcf'
     return res
 
