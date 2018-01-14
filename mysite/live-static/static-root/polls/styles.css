@@ -1,0 +1,37 @@
+.navbar-inverse {
+    border-color: transparent !important;
+    background: rgba(0,0,0,0.0) !important;
+    margin-top: 12px;
+}
+
+.navbar-brand {
+  font-size: 30px !important;
+}
+
+@font-face {
+    font-family: testfont;
+    src: url("AvenirLTStd-Black.otf") format("opentype");
+}
+
+.fonttest {
+    font-family: 'testfont';
+}
+
+.btn-outline-primary, .btn-outline-secondary, .btn-outline-white, .btn-outline-success, .btn-outline-info, .btn-outline-warning, .btn-outline-danger {
+  border-width: 0.15rem; 
+padding: 14px 24px;}
+
+.btn-outline-white, .btn-outline-white:visited {
+  background: none;
+  color: #fff;
+  border-color: #fff; }
+
+ .btn-outline-white, .btn-outline-white:visited {
+  background: none;
+  color: #fff;
+  border-color: #fff; }
+
+header.masthead {
+  padding-top: 10rem;
+}
+
