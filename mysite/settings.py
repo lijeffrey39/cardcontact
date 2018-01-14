@@ -25,7 +25,7 @@ SECRET_KEY = '071l@nn=dzi&3x5!l(br+&3kx9uy@xk56xeeik@6sp%yw$4p6a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cardcontact.herokuapp.com']
 
 
 # Application definition
