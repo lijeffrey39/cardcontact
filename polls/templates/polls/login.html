@@ -1,0 +1,52 @@
+{% extends 'polls/base.html' %}
+
+{% block bg %}
+<html style="background-color: #2b65d0; height: 100%;">
+{% endblock %}
+
+{% block body %}
+<br>
+<div class="col-sm-6 col-sm-offset-3" style = "text-align: center;">
+    <h3><font color="white" style = "font-weight: 300; letter-spacing: 0.03em;">Sign in to ContactCard</font></h3>
+    <br>
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+    <div class="col-sm-10 col-sm-offset-1">
+        <div class="panel panel-default" style = "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+          <div class="panel-body">
+            <br>
+            <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for error in form.non_field_errors %}
+                        <div class="col-sm-offset-2 col-sm-10">
+                             <span class="text-danger small">{{error}}</span>
+                        </div>
+                {% endfor %}
+
+                {% for field in form %}
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <span class="text-danger small">{{ field.errors }}</span>
+                        </div>
+                        <!-- <label class="control-label col-sm-2"><font color="black">{{ field.label_tag }}</font></label> -->
+                        <div class="col-sm-12 ">{{ field }}</div>
+                    </div>
+                {% endfor %}
+
+
+                <div class="form-group">
+                    <div class="col-sm-12"> 
+                        <input type="checkbox" style="float:left; margin-top: 10px">
+                        <p style="float:left; margin-left: 7px; margin-top: 5px">Remember Me</p>
+                        <button type="submit" class="btn btn-success" style="float:right">Sign In</button>
+                    </div>
+                </div>
+            </form>
+         </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

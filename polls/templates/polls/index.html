@@ -1,0 +1,34 @@
+{% extends 'polls/base.html' %}
+
+{% block bg %}
+<html style="background: linear-gradient(0deg, #336cbd, #184786 80%); height: 100%;">
+{% endblock %}
+
+{% block body %}
+
+<div class="col-sm-6">
+
+
+    <header class="masthead d-flex" style = "text-align: center; width: 100%;">
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-12 mx-auto">
+            <h1 class="text-uppercase">
+              <strong><font color="white" style = "letter-spacing: 0.2em; font-size: 40px;">Connect to Friends with Ease</font></strong>
+            </h1>
+            <br>
+            <br>
+          </div>
+          <div class="col-md-6 col-md-offset-3 mx-auto">
+            <p><font color="white" style = "letter-spacing: 0.03em; font-size: 16px; font-weight: 300;">Easily share your contact information with a click of a button. Share your Snapchat, Facebook, or Phone Number!</font></p>
+            <br>
+            <br>
+            <a class="btn btn-primary btn-lg btn-xl js-scroll-trigger" href="/register">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,160 @@
+{% extends 'polls/base.html' %}
+
+{% block bg %}
+<html style="background-color: #2b65d0; height: 100%;">
+{% endblock %}
+
+
+
+{% block body %}
+
+<br>
+
+<div class="col-sm-6 col-xs-8 col col-sm-offset-3 col-xs-offset-2">
+	<div class="panel panel-default" style = "box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+		<div class="panel-body">
+			<br>
+			<p style = "text-align: center"><font color = "black" style = "letter-spacing: 0.2em; font-size: 40px; font-weight: 300">{{user.first_name}} </font><font color = "black" style = "letter-spacing: 0.2em; font-size: 40px; font-weight: 500">{{user.last_name}}</font></p>
+			<hr>
+
+			{% if user.userprofile.phone%}
+			<div class="row">
+				<div class = "col-sm-12">
+					<div class="row">
+						<div class = "col-sm-4 col-xs-4" style = "text-align: center">
+							<i class="fa fa-phone fa-2x"></i>
+						</div>
+						<div class = "col-sm-8 col-xs-8">
+							<p style = "margin-top: 3px;"><font color = "grey" style = "letter-spacing: 0.2em; font-size: 12px; font-weight: 300;">   {{user.userprofile.phone}}  </font></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% else %}
+	        {% endif %}
+
+			<div class="row">
+				<div class = "col-sm-12">
+					<div class="row">
+						<div class = "col-sm-4 col-xs-4" style = "text-align: center">
+							<i class="fa fa-envelope fa-2x"></i>
+						</div>
+						<div class = "col-sm-8 col-xs-8">
+							<p style = "margin-top: 3px;"><font color = "grey" style = "letter-spacing: 0.2em; font-size: 12px; font-weight: 300;">   {{user.email}}  </font></p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{% if user.userprofile.facebook %}
+			<div class="row">
+				<div class = "col-sm-12">
+					<div class="row">
+						<div class = "col-sm-4 col-xs-4" style = "text-align: center">
+							<i class="fa fa-facebook fa-2x"></i>
+						</div>
+						<div class = "col-sm-8 col-xs-8">
+							<p style = "margin-top: 3px;"><font color = "grey" style = "letter-spacing: 0.2em; font-size: 12px; font-weight: 300;">   {{user.userprofile.facebook}} </font></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% else %}
+	        {% endif %}
+
+			{% if user.userprofile.snapchat %}
+			<div class="row">
+				<div class = "col-sm-12">
+					<div class="row">
+						<div class = "col-sm-4 col-xs-4" style = "text-align: center">
+							<i class="fa fa-snapchat fa-2x"></i>
+						</div>
+						<div class = "col-sm-8 col-xs-8">
+							<p style = "margin-top: 3px;"><font color = "grey" style = "letter-spacing: 0.2em; font-size: 12px; font-weight: 300;">   {{user.userprofile.snapchat}} </font></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% else %}
+	        {% endif %}
+
+			{% if user.userprofile.insta %}
+			<div class="row">
+				<div class = "col-sm-12">
+					<div class="row">
+						<div class = "col-sm-4 col-xs-4" style = "text-align: center">
+							<i class="fa fa-instagram fa-2x"></i>
+						</div>
+						<div class = "col-sm-8 col-xs-8">
+							<p style = "margin-top: 3px;"><font color = "grey" style = "letter-spacing: 0.2em; font-size: 12px; font-weight: 300;">   {{user.userprofile.insta}} </font></p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{% else %}
+	        {% endif %}
+
+
+	        {% if user.userprofile.twitter %}
+			<div class="row">
+				<div class = "col-sm-12">
+					<div class="row">
+						<div class = "col-sm-4 col-xs-4" style = "text-align: center">
+							<i class="fa fa-twitter fa-2x"></i>
+						</div>
+						<div class = "col-sm-8 col-xs-8">
+							<p style = "margin-top: 3px;"><font color = "grey" style = "letter-spacing: 0.2em; font-size: 12px; font-weight: 300;">   {{user.userprofile.twitter}} </font></p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{% else %}
+	        {% endif %}
+
+			{% if user.is_authenticated and domain %}
+				<br>
+	      		<div class = "col-sm-12">
+					<div class="row">
+						<div class = "col-sm-6 col-xs-6" style = "text-align: center">
+							<a class="btn btn-default " href="/edit" role="button">Edit Profile</a>
+						</div>
+						<div class = "col-sm-6 col-xs-6"  style = "text-align: center">
+							<a class="btn btn-primary " data-toggle="modal" data-target="#myModal" role="button"> <i class="fa fa-share"></i> Get Share Link</a>
+						</div>
+					</div>
+				</div>
+	        {% else %}
+	        	<div class = "col-sm-12" style="background-color: white; text-align: center">
+					<br>
+					<a class="btn btn-primary " href="{% url 'getfile' user.userprofile.shortcode %}" role="button"> <i class="fa fa-download"></i> Save Contact</a>
+					<br>
+				</div>
+	        {% endif %}
+
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel" style="text-align: center">Shareable Link</h4>
+      </div>
+      <div class="modal-body" style = "text-align: center">
+      	<div class="form-group">
+        	<input style = "text-align: center" type="text" value="{{ domain }}" class="form-control" readonly>
+	    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

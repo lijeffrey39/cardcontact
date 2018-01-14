@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+{% block bg %}
+
+{% endblock %}
+
+<head>
+	<title>ContactMe</title>
+	{% load staticfiles %}
+	{% load static %}
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'polls/styles.css' %}" />
+	<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body style = "height: 0%;">
+	<div class="navbar transparent navbar-inverse">
+		<nav class="navbar-inner">
+		<div class = "container">
+			<div class = "navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+				<a class = "navbar-brand" href = "/"><font color="white" style = "font-family: testfont">ContactCard</font></a>
+			</div>
+
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav navbar-right">
+		      	{% if request.user.is_authenticated %}
+		      		<li><a class = "btn" href="/profile"><font color="white" style = "font-weight: 600">Profile</font></a></li>
+		      		<li><a class="btn btn-outline-white btn-outline" href="/logout"><font color="white" style = "font-weight: 600">Logout</font></a></li>
+		        {% else %}
+		        	<li><a class = "btn" href="/login"><font color="white" style = "font-weight: 600">Sign In</font></a></li>
+		        	<li><a class="btn btn-outline-white btn-outline" href="/register"><font color="white" style = "font-weight: 600">Sign Up</font></a></li>
+		        {% endif %}
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+
+
+		</div>
+		</nav>
+	</div>
+<div class='container'>
+{% block body %}
+{% endblock %}
+</div>
+
+</body>
+</html>
