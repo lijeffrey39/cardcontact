@@ -75,7 +75,7 @@ def profileView(request, code):
 
 def profileViewReal(request):
     if request.user.is_authenticated:
-        domain = '127.0.0.1:8000/' + request.user.userprofile.shortcode
+        domain = 'cardcontact.herokuapp.com/' + request.user.userprofile.shortcode
         return render(request, 'polls/viewprof.html', {'user': request.user, 'domain': domain})
     else:
         return redirect('/')
