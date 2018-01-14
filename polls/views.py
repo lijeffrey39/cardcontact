@@ -14,6 +14,8 @@ from django.contrib.sites.models import Site
 
 from .models import Choice, Question, UserProfile
 
+import mimetypes
+
 # def index(request):
 # 	latest_question_list = Question.objects.order_by('-pub_date')[:5]
 # 	# template = loader.get_template('polls/index.html')
@@ -184,7 +186,7 @@ def getFile(request, code):
     name = first + " " + last
 
     fileContent = 'BEGIN:VCARD\r\nVERSION:3.0\r\nEMAIL;TYPE=INTERNET:' + email + '\r\nFN:' + name + '\r\nN:' + last + ';' + first + ';;;\r\nEND:VCARD\r\n'
-    res = HttpResponse(content_type=mimetypes.guess_type(file_name))
+    res = HttpResponse(content_type=mimetypes.guess_type(first))
     res.write(fileContent)
     res['Content-Disposition'] = 'attachment; filename=yourname.vcf'
     return res
